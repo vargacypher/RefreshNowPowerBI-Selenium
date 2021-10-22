@@ -17,7 +17,7 @@ def main():
     #option.headless = True
     #option.incognito = True
 
-    #BROWSER OBJECT / NAVIGATE TO POWER BI / MAXIMIZE WINDOW 
+    #BROWSER OBJECT / NAVEGAÇÃO ATÉ POWER BI / MAXIMIZE WINDOW 
     browser = webdriver.Chrome(executable_path='C:\\Users\\vargas.guilherme\\Desktop\\ScriptsPy\\update_reports_BI\\chromedriver' , options=option)
     browser.get(powerbi)
     browser.maximize_window()
