@@ -17,7 +17,7 @@ def main():
     #option.headless = True
     #option.incognito = True
 
-    #BROWSER OBJECT / NAVEGAÇÃO ATÉ POWER BI / MAXIMIZE WINDOW 
+    #BROWSER OBJECT / NAVIGATE TO POWER BI / MAXIMIZE WINDOW 
     browser = webdriver.Chrome(executable_path='C:\\Users\\vargas.guilherme\\Desktop\\ScriptsPy\\update_reports_BI\\chromedriver' , options=option)
     browser.get(powerbi)
     browser.maximize_window()
@@ -25,36 +25,33 @@ def main():
     #INSERE O EMAIL E CLICA EM NEXT
     time.sleep(4)
     bi_email = WebDriverWait(browser, 5).until(EC.presence_of_element_located((By.ID, 'i0116'))) 
-    bi_email.send_keys('YOUR EMAIL')
+    bi_email.send_keys('your email')
     bi_email.send_keys(Keys.ENTER)
 
     #INSERE A SENHA E CLICA EM ENTRAR
     time.sleep(4)
     bi_pass = WebDriverWait(browser, 5).until(EC.presence_of_element_located((By.ID, 'i0118')))
-    bi_pass.send_keys('YOUR PASSWORD')
+    bi_pass.send_keys('your password')
     bi_pass.send_keys(Keys.ENTER)
 
- #SELECIONA A OPÇÃO DE NAO MANTER CONECTADO
+    '''THIS IS THE PROMPT THAT ASKS IF YOU WANT TO REMAIN LOGGED IN'''
+    '''WAIT / STAY ON CURRENT SELECTION / MOVE AND CLICK ON ADJACENT SELECTION'''
     time.sleep(4)
     yes_choice = browser.find_element_by_id('idSIButton9')
     yes_choice.send_keys(Keys.SHIFT, Keys.TAB, Keys.ENTER)
 
     #LOCALIZA A WORKSPACE E CLICA NELA
     time.sleep(4)
-    browser.get('https://app.powerbi.com/groups/72074a89-ebrectedFromSignup=1&noSignUpCheck=1&response=AlreadyAssignedLicense')
+    browser.get('https://app.powerbi.com/groups/72074a89-eb16-4e08-80f9-1c94fb7c1c4e/reports/c170d176-604a-4c9a-b4d3-fa3914eb0a16/ReportSection7797ffc916e2b27c645e')
 
     #Atualiza o report
-    time.sleep(1)
-    refresh = browser.find_elements_by_xpath('//*[@id="REFRESH NOW"]')
-
-    for i in refresh:
-        time.sleep(1)
-        refresh.click()
+    time.sleep(10)
+    refresh = browser.find_element_by_id('reportAppBarRefreshBtn').click()
     
     print ('Dataset Atualizado')
 
-    '''CLOSE BROWSER'''
-    time.sleep(3)
+#FECHAR O BROWSER
+    time.sleep(8)
     browser.close()
     browser.quit()
 
