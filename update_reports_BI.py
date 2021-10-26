@@ -52,7 +52,7 @@ def main():
 
     #LOCALIZA A WORKSPACE 
     time.sleep(4)
-    browser.get('https://app.powerbi.com/groups/72074a89-eb16-4e08-80f9-1c94fb7c1c4e/list')
+    browser.get('https://app.powerbi.com/groups/72074a89-eb8-80f9-1c94fb7c1c4e/list')
 
     #Vai até a DIV para localizar o botão de att
     time.sleep(5)
