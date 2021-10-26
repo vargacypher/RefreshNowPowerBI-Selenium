@@ -78,7 +78,7 @@ def main():
     
     buttonatualizarpainel_elem.click()
     
-    print ('Dataset Atualizado')
+    print (f'Dataset Atualizado em : {datetime.now().strftime("%d/%m/%Y %H:%M:%S")}')
 
 #FECHAR O BROWSER
     time.sleep(8)
